@@ -640,7 +640,15 @@ def index():
     except FileNotFoundError:
         return "index.html not found", 404
 
+# This runs if you import from gunicorn or run from the CLI
+# Usually I don't put stuff here, but it works in this case
+print("Loading master data")
+load_master_data()
+
 if __name__ == '__main__':
-    # gunicorn app:app -b 0.0.0.0:5000
-    load_master_data()
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    # This is a little bad because it won't get called if we want to start the app from gunicorn. 
+    # load_master_data()
+
+    # gunicorn -b 0.0.0.0:5000 app:app
+    # app.run(debug=False, host='0.0.0.0', port=5000) # Visible to everyone on network
+    app.run(debug=True, host='127.0.0.1', port=5000) # Just visible to localhost
