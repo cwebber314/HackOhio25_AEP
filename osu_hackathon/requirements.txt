@@ -4,10 +4,12 @@ click==8.3.0
 colorama==0.4.6
 deap==1.4.3
 Flask==3.1.2
+gunicorn==23.0.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
 numpy==2.3.4
+packaging==25.0
 pandas==2.3.3
 pydantic==2.12.3
 pydantic_core==2.41.4

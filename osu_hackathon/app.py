@@ -641,5 +641,6 @@ def index():
         return "index.html not found", 404
 
 if __name__ == '__main__':
+    # gunicorn app:app -b 0.0.0.0:5000
     load_master_data()
     app.run(debug=False, host='0.0.0.0', port=5000)
